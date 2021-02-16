@@ -11,12 +11,6 @@
 
   const form = getContext(FORM);
 
-  if (process.env.NODE_ENV !== "production" && !form) {
-    throw new Error(
-      "Could not find svelte-final-form context value. Please ensure that your FormSpy is inside the Form component.",
-    );
-  }
-
   $: {
     unsubscribe && unsubscribe();
     unsubscribe = form.subscribe((nextFormState) => {
